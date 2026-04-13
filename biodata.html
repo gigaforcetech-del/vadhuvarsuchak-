@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Biodata - Junnar Vadhu Var Suchak Mandal</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="header">
+    <div class="logo">Junnar Vadhu Var Suchak Mandal</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="biodata.html">Biodata</a>
+    </nav>
+  </header>
+  
+  <section class="section">
+    <h2>Select Profile Type</h2>
+
+    <div class="selection-buttons">
+      <button onclick="showProfiles('male')" class="btn">Looking for Male</button>
+      <button onclick="showProfiles('female')" class="btn">Looking for Female</button>
+    </div>
+
+   
+<div class="filters">
+
+   <select id="professionFilter" onchange="applyFilters()">
+    <option value="">All Professions</option>
+    <option value="engineer">Engineer</option>
+    <option value="business">Business</option>
+    <option value="nurse">Nurse</option>
+    <option value="accountant">Accountant</option>
+  </select>
+
+  <select id="ageFilter" onchange="applyFilters()">
+    <option value="">All Ages</option>
+    <option value="25">Below 25</option>
+    <option value="30">Below 30</option>
+  </select>
+
+</div>
+
+    <h2 id="profileTitle" class="profile-title">Profiles</h2>
+
+    <div id="profileContainer" class="biodata-grid"></div>
+  </section>
+  
+  <footer class="footer">
+    <p>© 2026 Junnar Vadhu Var Suchak Mandal. All Rights Reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
