@@ -45,7 +45,7 @@ nav a:hover {
 /* ── HERO ── */
 .hero {
   background: linear-gradient(rgba(0,0,0,0.50), rgba(0,0,0,0.50)),
-    url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1400&q=80');
+    url('images/cover_photo.png') no-repeat;
   background-size: cover;
   background-position: center;
   min-height: 88vh;
