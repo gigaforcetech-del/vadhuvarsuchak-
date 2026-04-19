@@ -35,7 +35,7 @@ nav a {
   text-decoration: none;
   margin-left: 16px;
   font-weight: bold;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 nav a:hover {
@@ -359,6 +359,18 @@ nav a:hover {
   box-shadow: 0 6px 18px rgba(0,0,0,0.1);
   text-align: left;
   position: relative;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.biodata-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.15);
+}
+
+.biodata-card:focus {
+  outline: 3px solid rgba(123, 30, 30, 0.25);
+  outline-offset: -3px;
 }
 
 .biodata-code-badge {
@@ -377,8 +389,8 @@ nav a:hover {
 }
 
 .biodata-card img {
-  width: 100%;
-  height: 260px;
+  width: auto;
+  height: auto;
   object-fit: cover;
 }
 
@@ -408,17 +420,53 @@ nav a:hover {
   letter-spacing: 1px;
 }
 
-/* ── FILTERS ── */
-.filters {
-  margin: 20px;
+/* ── PROFILE DETAILS ── */
+.profile-details {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
 }
 
-.filters select {
-  padding: 10px;
-  margin: 5px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  font-size: 14px;
+.profile-details img {
+  object-fit: cover;
+  border: 4px solid #7b1e1e;
+  flex-shrink: 0;
+}
+
+.profile-details .details-content {
+  flex: 1;
+  text-align: left;
+}
+
+.profile-details .details-content h1 {
+  color: #7b1e1e;
+  margin-bottom: 20px;
+}
+
+.profile-details .details-content p {
+  margin: 10px 0;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* ── RESPONSIVE PROFILE DETAILS ── */
+@media (max-width: 768px) {
+  .profile-details {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .profile-details img {
+    width: 280px;
+    height: 280px;
+  }
+
+  .profile-details .details-content {
+    text-align: center;
+  }
 }
 
 /* ── FOOTER ── */
@@ -428,7 +476,7 @@ nav a:hover {
   text-align: center;
   padding: 20px;
   margin-top: 40px;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.8;
 }
 
@@ -460,4 +508,84 @@ nav a:hover {
   .plan-price {
     font-size: 44px;
   }
+}/ *    % %  P A G I N A T I O N    % %  * / 
+ . p a g i n a t i o n   { 
+     d i s p l a y :   f l e x ; 
+     j u s t i f y - c o n t e n t :   c e n t e r ; 
+     a l i g n - i t e m s :   c e n t e r ; 
+     g a p :   8 p x ; 
+     m a r g i n - t o p :   3 0 p x ; 
+     m a r g i n - b o t t o m :   2 0 p x ; 
+ } 
+ 
+ . p a g i n a t i o n - b t n   { 
+     b a c k g r o u n d :   # 7 b 1 e 1 e ; 
+     c o l o r :   w h i t e ; 
+     b o r d e r :   n o n e ; 
+     p a d d i n g :   1 0 p x   1 6 p x ; 
+     b o r d e r - r a d i u s :   6 p x ; 
+     c u r s o r :   p o i n t e r ; 
+     f o n t - s i z e :   1 4 p x ; 
+     f o n t - w e i g h t :   b o l d ; 
+     t r a n s i t i o n :   b a c k g r o u n d - c o l o r   0 . 2 s   e a s e ,   t r a n s f o r m   0 . 1 s   e a s e ; 
+     m i n - w i d t h :   4 4 p x ; 
+ } 
+ 
+ . p a g i n a t i o n - b t n : h o v e r   { 
+     b a c k g r o u n d :   # 5 a 1 4 1 4 ; 
+     t r a n s f o r m :   t r a n s l a t e Y ( - 1 p x ) ; 
+ } 
+ 
+ . p a g i n a t i o n - b t n . a c t i v e   { 
+     b a c k g r o u n d :   # 4 e 1 5 1 5 ; 
+     c o l o r :   # f f f ; 
+     b o x - s h a d o w :   0   2 p x   8 p x   r g b a ( 0 , 0 , 0 , 0 . 2 ) ; 
+ } 
+ 
+ . p a g i n a t i o n - b t n : d i s a b l e d   { 
+     b a c k g r o u n d :   # c c c ; 
+     c u r s o r :   n o t - a l l o w e d ; 
+     t r a n s f o r m :   n o n e ; 
+ } 
+ 
+ 
+
+/* ── PAGINATION ── */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.pagination-btn {
+  background: #7b1e1e;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  min-width: 50px;
+}
+
+.pagination-btn:hover {
+  background: #5a1414;
+  transform: translateY(-1px);
+}
+
+.pagination-btn.active {
+  background: #4e1515;
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.pagination-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  transform: none;
 }

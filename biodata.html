@@ -33,11 +33,19 @@
     <option value="business">Business</option>
     <option value="nurse">Nurse</option>
     <option value="accountant">Accountant</option>
+    <option value="working">Working</option>
+    <option value="non working">Non Working</option>
+    <option value="graduation">Graduation</option>
+  </select>
   </select>
 
   <select id="ageFilter" onchange="applyFilters()">
     <option value="">All Ages</option>
     <option value="25">Below 25</option>
+    <option value="26">Below 26</option>
+    <option value="27">Below 27</option>
+    <option value="28">Below 28</option>
+    <option value="29">Below 29</option>
     <option value="30">Below 30</option>
   </select>
 
@@ -46,6 +54,8 @@
     <h2 id="profileTitle" class="profile-title">Profiles</h2>
 
     <div id="profileContainer" class="biodata-grid"></div>
+
+    <div id="paginationContainer" class="pagination"></div>
   </section>
   
   <footer class="footer">
