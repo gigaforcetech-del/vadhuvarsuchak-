@@ -460,8 +460,8 @@ nav a:hover {
   }
 
   .profile-details img {
-    width: 280px;
-    height: 280px;
+    width: auto;
+    height: auto;
   }
 
   .profile-details .details-content {
