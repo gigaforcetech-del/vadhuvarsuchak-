@@ -132,7 +132,7 @@ const femaleProfiles = [
     education: "B. E. Information Technology.",
     profession: "",
     bloodGroup: "AB+",
-    height: "पफूट 4ST रक्तगट : AB+",
+    height: "५.५ फूट",
     Birthplace: "",
     Birthtime: "",
     location: "मु. पो. डुंबरवाडी, ता. जुन्नर, जि. पुणे",
@@ -286,7 +286,7 @@ const femaleProfiles = [
   },
    {
     code: "JF11120",
-    name: "Priya Sharma",
+    name: "gayatri shinde",
     age: "23",
     education: "BCA",
     profession: "Software Developer",
