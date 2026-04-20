@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Success Stories</title>
+
+  <!-- GOOGLE FONT -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #f5f7fa;
+    }
+
+    /* HEADER */
+    header {
+      background: linear-gradient(135deg, #ff4d6d, #ff758f);
+      color: white;
+      padding: 15px;
+      text-align: center;
+    }
+
+    nav {
+      margin-top: 10px;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 12px;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    /* MAIN */
+    main {
+      max-width: 1000px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+
+    .title {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .title h2 {
+      margin: 0;
+      color: #333;
+    }
+
+    .title p {
+      color: #666;
+    }
+
+    /* CARD */
+    .story-card {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      background: white;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      transition: 0.3s;
+    }
+
+    .story-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+    }
+
+    .story-card img {
+      width: 140px;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+
+    .story-content h3 {
+      margin: 0;
+      color: #ff4d6d;
+    }
+
+    .story-content p {
+      margin: 8px 0;
+      color: #555;
+    }
+
+    .quote {
+      font-style: italic;
+      color: #888;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 15px;
+      background: #333;
+      color: white;
+      margin-top: 40px;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .story-card {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .story-card img {
+        width: 100%;
+        height: 200px;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>Junnar Vadhuvarsuchak</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="biodata.html">Biodata</a>
+      <a href="success-stories.html">Success Stories</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <div class="title">
+      <h2>❤️ Success Stories</h2>
+      <p>Real couples who found their perfect match through our platform</p>
+    </div>
+
+    <!-- STORY 1 -->
+    <div class="story-card">
+      <img src="images/couple1.jpg" onerror="this.src='images/dummy.png'">
+      <div class="story-content">
+        <h3>Rahul & Priya</h3>
+        <p>Rahul (Software Engineer) and Priya (Teacher) met through our platform and built a beautiful relationship.</p>
+        <p class="quote">"We are forever thankful ❤️"</p>
+      </div>
+    </div>
+
+    <!-- STORY 2 -->
+    <div class="story-card">
+      <img src="images/couple2.jpg" onerror="this.src='images/dummy.png'">
+      <div class="story-content">
+        <h3>Amit & Sneha</h3>
+        <p>Amit (Businessman) and Sneha (Doctor) found each other after a long search. Their journey inspires many.</p>
+        <p class="quote">"Dream come true ✨"</p>
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Junnar Vadhuvarsuchak</p>
+  </footer>
+
+</body>
+</html>
