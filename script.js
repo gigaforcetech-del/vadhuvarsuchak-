@@ -268,7 +268,7 @@ const femaleProfiles = [
     नाडी: "",
     देवक: "आरखड",
     education: "",
-    profession: "फळांचे व्यापारी (कमिशन एजंट)",
+    profession: "",
     bloodGroup: "",
     height: "",
     Birthplace: "",
@@ -276,7 +276,7 @@ const femaleProfiles = [
     location: "घाटकोपर (मुंबई - 4000086)",
     image: "images/11119_face_3.jpg",
     Fathername: "श्री रामदास कुंडलिक खंडागळे",
-    Fatheroccupation: "",
+    Fatheroccupation: "फळांचे व्यापारी (कमिशन एजंट)",
     Mothername: "सौ शशिकला रामदास खंडागळे",
     Motheroccupation: "",
     Siblings: "",
@@ -353,11 +353,11 @@ function displayProfiles(profiles, page = 1) {
         <h3>${profile.name}</h3>
         <p><strong>Profile Code:</strong> <span class="profile-code">${profile.code}</span></p>
         <p><strong>वय:</strong> ${profile.age}</p>
-        <p><strong>Education:</strong> ${profile.education}</p>
+        <p><strong>शिक्षण:</strong> ${profile.education}</p>
         <p><strong>Profession:</strong> ${profile.profession}</p>
-        <p><strong>Height:</strong> ${profile.height}</p>
-        <p><strong>Location:</strong> ${profile.location}</p>
-        <p><strong>salary:</strong> ${profile.family}</p>
+        <p><strong>उंची:</strong> ${profile.height}</p>
+        <p><strong>ठिकाण:</strong> ${profile.location}</p>
+        <p><strong>पगार:</strong> ${profile.family}</p>
       </div>
     `;
 
