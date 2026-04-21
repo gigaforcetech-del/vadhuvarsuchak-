@@ -521,31 +521,43 @@ nav a:hover {
 }
 
 .pagination-btn {
-  background: #ff758f;
+  background: linear-gradient(135deg, #ff6a88, #ff8fa3);
   color: white;
   border: none;
-  padding: 12px 20px;
-  border-radius: 6px;
+  padding: 12px 18px;
+  border-radius: 8px;
   cursor: pointer;
-  font-size: 16px;
-  font-weight: bold;
-  transition: background-color 0.2s ease, transform 0.1s ease;
+  font-size: 15px;
+  font-weight: 600;
   min-width: 50px;
+  transition: all 0.25s ease;
+  box-shadow: 0 3px 8px rgba(255, 106, 136, 0.3);
 }
 
+/* Hover */
 .pagination-btn:hover {
-  background: #ff758f;
-  transform: translateY(-1px);
+  background: linear-gradient(135deg, #ff5a7a, #ff7f96);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(255, 106, 136, 0.5);
 }
 
+/* Active Click */
+.pagination-btn:active {
+  transform: scale(0.95);
+  box-shadow: 0 2px 6px rgba(255, 106, 136, 0.3);
+}
+
+/* Current Page */
 .pagination-btn.active {
-  background: #ff758f;
-  color: #fff;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  background: #e94e77;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
 }
 
+/* Disabled */
 .pagination-btn:disabled {
-  background: #ccc;
+  background: #ddd;
+  color: #888;
   cursor: not-allowed;
+  box-shadow: none;
   transform: none;
 }
