@@ -122,7 +122,7 @@ const femaleProfiles = [
   {
      code: "JF11113",
      name: "कु. श्रुती दत्तात्रय डुंबरे",
-    age: "18",
+    age: "29",
     dateOfBirth: "१४/०८/१९९६",
     caste: "fégurtar रास : कर्क",
     ras: "कर्क",
@@ -174,25 +174,7 @@ const femaleProfiles = [
 
   },
   {
-    code: "JF11115",
-    name: "Priya Sharma",
-    age: "23",
-    education: "BCA",
-    profession: "Software Developer",
-    height: "5'3\"",
-    location: "Thane",
-    family: "Nuclear family",
-    image: "images/dummy.png",
-    hobbies: "Coding, Gaming, Music",
-    expectations: "Tech-savvy, fun-loving partner",
-    fatherOccupation: "Businessman",
-    motherOccupation: "Housewife",
-    siblings: "1 sister",
-    religion: "Hindu",
-    caste: "Maratha",
-    dateOfBirth: "2001-04-10",
-    bloodGroup: "AB+",
-    languages: "Marathi, Hindi, English"
+   
   },
    {
     code: "JF11116",
@@ -806,8 +788,7 @@ function displayProfiles(profiles, page = 1) {
         <p><strong>Profession:</strong> ${profile.profession}</p>
         <p><strong>उंची:</strong> ${profile.height}</p>
         <p><strong>ठिकाण:</strong> ${profile.location}</p>
-        <p><strong>पगार:</strong> ${profile.family}</p>
-      </div>
+            </div>
     `;
 
     const goToDetail = () => {
