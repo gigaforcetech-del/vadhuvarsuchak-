@@ -7,3 +7,6 @@ const USERS = [
   { username: "snehal", password: "snehal2026" },
   { username: "user1", password: "pass1234" }
 ];
+
+// Admin WhatsApp Number (for contact inquiries)
+const ADMIN_WHATSAPP = "919876543210"; // Add your actual admin WhatsApp number here

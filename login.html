@@ -339,9 +339,10 @@
       );
 
       if (match) {
-        // Store session flag
+        // Store session flag with timestamp
         sessionStorage.setItem("loggedIn", "true");
         sessionStorage.setItem("loginUser", username);
+        sessionStorage.setItem("loginTime", Date.now().toString());
         // Redirect to biodata page
         window.location.href = "biodata.html";
       } else {

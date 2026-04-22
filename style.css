@@ -42,6 +42,58 @@ nav a:hover {
   text-decoration: underline;
 }
 
+/* ── SESSION INFO & LOGOUT ── */
+.login-name {
+  color: white;
+  margin-left: auto;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.session-info {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-left: 16px;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.session-info span {
+  display: inline-block;
+}
+
+.btn-logout {
+  background: rgba(255, 255, 255, 0.25);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 14px;
+  margin-left: 12px;
+  transition: all 0.3s ease;
+}
+
+.btn-logout:hover {
+  background: rgba(255, 255, 255, 0.35);
+  border-color: rgba(255, 255, 255, 0.6);
+  transform: translateY(-2px);
+}
+
+.btn-logout:active {
+  transform: translateY(0);
+  background: rgba(255, 255, 255, 0.25);
+}
+
 /* ── HERO ── */
 .hero {
   background: linear-gradient(rgba(0,0,0,0.50), rgba(0,0,0,0.50)),
@@ -83,22 +135,58 @@ nav a:hover {
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  font-size: 24px;
+  font-size: 16px;
   margin: 8px;
-  transition: background 0.2s;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
 .btn:hover {
-  background: #ff758f;
+  background: #ff5a7a;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 
+.btn:active {
+  transform: translateY(0);
+}
+
+/* Action buttons container */
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 40px;
+  margin-bottom: 0;
+  padding: 0 20px;
+}
+
+/* Back button style */
+.btn-back {
+  background: #ff758f;
+  color: white;
+}
+
+.btn-back:hover {
+  background: #ff5a7a;
+}
+
+/* WhatsApp button style */
 .btn-whatsapp {
   background: #25D366;
   color: white;
+  border: none;
 }
 
 .btn-whatsapp:hover {
   background: #1da851;
+  transform: translateY(-2px);
+}
+
+.btn-whatsapp:active {
+  transform: translateY(0);
 }
 
 /* ── SECTIONS ── */
@@ -453,6 +541,18 @@ nav a:hover {
 
 /* ── RESPONSIVE PROFILE DETAILS ── */
 @media (max-width: 768px) {
+  .action-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .btn {
+    width: 100%;
+    max-width: 300px;
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+
   .profile-details {
     flex-direction: column;
     align-items: center;
@@ -493,6 +593,24 @@ nav a:hover {
     font-size: 13px;
   }
 
+  .login-name {
+    margin-left: 0;
+    font-size: 12px;
+    padding: 6px 8px;
+  }
+
+  .session-info {
+    margin-left: 0;
+    font-size: 12px;
+    padding: 6px 8px;
+  }
+
+  .btn-logout {
+    margin-left: 0;
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+
   .hero-content h1 {
     font-size: 28px;
   }
@@ -515,21 +633,25 @@ nav a:hover {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
   gap: 8px;
   margin-top: 30px;
   margin-bottom: 20px;
+  max-width: 100%;
+  overflow: visible;
 }
 
 .pagination-btn {
   background: linear-gradient(135deg, #ff6a88, #ff8fa3);
   color: white;
   border: none;
-  padding: 12px 18px;
+  padding: 10px 14px;
   border-radius: 8px;
   cursor: pointer;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 600;
-  min-width: 50px;
+  min-width: 45px;
+  flex-shrink: 0;
   transition: all 0.25s ease;
   box-shadow: 0 3px 8px rgba(255, 106, 136, 0.3);
 }
@@ -560,4 +682,79 @@ nav a:hover {
   cursor: not-allowed;
   box-shadow: none;
   transform: none;
+}
+
+/* Pagination Ellipsis */
+.pagination-ellipsis {
+  color: #666;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+/* Mobile Pagination */
+@media (max-width: 768px) {
+  .pagination {
+    gap: 6px;
+    margin-top: 20px;
+    margin-bottom: 15px;
+  }
+  
+  .pagination-btn {
+    padding: 8px 10px;
+    font-size: 12px;
+    min-width: 38px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: 10px 12px;
+  }
+
+  nav a {
+    margin: 0 4px;
+    font-size: 11px;
+  }
+
+  .login-name {
+    margin-left: 0;
+    font-size: 10px;
+    padding: 4px 6px;
+  }
+
+  .session-info {
+    margin-left: 0;
+    font-size: 10px;
+    padding: 4px 6px;
+    gap: 6px;
+  }
+
+  .btn-logout {
+    margin-left: 0;
+    padding: 4px 8px;
+    font-size: 11px;
+  }
+
+  .action-buttons {
+    flex-direction: column;
+    gap: 8px;
+    padding: 0 10px;
+  }
+
+  .btn {
+    width: 100%;
+    padding: 10px 16px;
+    font-size: 13px;
+    margin: 0;
+  }
+
+  .pagination {
+    gap: 4px;
+  }
+  
+  .pagination-btn {
+    padding: 6px 8px;
+    font-size: 11px;
+    min-width: 32px;
+  }
 }

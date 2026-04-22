@@ -328,7 +328,7 @@ const femaleProfiles = [
     Birthplace: "वैष्णवधाम पारुंडे",
     Birthtime: "सकाळी ०७:५५ वाजता",
     location: "मु.पो. wee, ता. जुन्नर.जि.पुणे",
-    image: "JF11121.jpeg",
+    image: "JF11121-face.jpeg",
     Fathername: "श्री. किसन विष्णू जाधव (नौकरी -चाकण )",
     Fatheroccupation: "",
     Mothername: "सौ.सुवर्णा किसन जाधव (गृहिणी )",
@@ -459,7 +459,7 @@ height: "५ फूट ३ इंच",
 Birthplace: "आळेफाटा",
 Birthtime: "संध्याकाळी ०८ वाजता",
 location: "MIDC शाहूनगर, चिंचवड, पुणे",
-image: "JF11126.jpeg",
+image: "images/JF11126 -face.jpeg",
 Fathername: "श्री. शिवाजी राजाराम रकळे",
 Fatheroccupation: "TATA MOTORS",
 Mothername: "सौ. संगीता शिवाजी रकळे",
@@ -693,7 +693,7 @@ height: "5 फूट 3 इंच",
 Birthplace: "नारायणगाव (पुणे)",
 Birthtime: "दुपारी 2:20",
 location: "भिमाशंकर सो., सेक्टर-29, नेरूळ, नवी मुंबई / बोरी बु., ता. जुन्नर, जि. पुणे",
-image: "81740fb9-bded-4297-92f9-2f8e436d3bd2.jpeg",
+image: "images/JF11135 -face.jpeg",
 Fathername: "श्री. कैलास भगवत शिंदे",
 Fatheroccupation: "नोकरी - बी. एम. सी (BMC)",
 Mothername: "सौ. सुजाता कैलास शिंदे",
@@ -719,7 +719,7 @@ height: "5 फूट 3 इंच",
 Birthplace: "राजगुरूनगर, खेड",
 Birthtime: "दुपारी 03 वा. 20 मि.",
 location: "राजगुरूनगर, माळी मळा, वृंदावन सोसायटी, पुणे-410505 / मु. पो. भांबवाडी, तालुका-खेड, जिला-पुणे",
-image: "068e1e02-c509-4e29-a704-37df56b5b6dc.jpeg",
+image: "images/JF11136 -face.jpeg",
 Fathername: "काळुराम भागाजी कोतवाल",
 Fatheroccupation: "Ministry of Defence",
 Mothername: "सौ. संगीता काळुराम कोतवाल",
@@ -728,7 +728,7 @@ Siblings: "1 भाऊ - श्री. अमर काळुराम कोत
 Relatives: "मुळूक, पालेकर, भोजगडे, बोराडे, पवार, होरे, जरे, तोडकरी, बुढे, करंजखेडे",
 expectations: ""},
 {
-   code: "37",
+   code: "JF11137",
 name: "कु. अश्विनी सुधाकर सेंद",
 age: "28",
 dateOfBirth: "23/12/1997",
@@ -744,7 +744,7 @@ height: "5.3",
 Birthplace: "वासुंदे, ता. पारनेर",
 Birthtime: "2:40",
 location: "मुंडळ, कळवण / राजुरी",
-image: "02db4e75-ca46-4387-a82f-80353618626b.jpeg",
+image: "images/JF11137-face.jpeg",
 Fathername: "सुधाकर बाळू सेंद",
 Fatheroccupation: "",
 Mothername: "सौ. ज्योती सुधाकर सेंद",
@@ -839,13 +839,13 @@ function displayPagination(totalProfiles, currentPage) {
   // Previous button
   if (currentPage > 1) {
     const prevButton = document.createElement("button");
-    prevButton.textContent = "Pre";
+    prevButton.textContent = "← Pre";
     prevButton.className = "pagination-btn";
     prevButton.onclick = () => changePage(currentPage - 1);
     paginationContainer.appendChild(prevButton);
   }
 
-  // Page numbers
+  // Page numbers with smart ellipsis
   const maxVisiblePages = 5;
   let startPage = Math.max(1, currentPage - Math.floor(maxVisiblePages / 2));
   let endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
@@ -854,6 +854,27 @@ function displayPagination(totalProfiles, currentPage) {
     startPage = Math.max(1, endPage - maxVisiblePages + 1);
   }
 
+  // Add first page button if not showing
+  if (startPage > 1) {
+    const firstButton = document.createElement("button");
+    firstButton.textContent = "1";
+    firstButton.className = "pagination-btn";
+    firstButton.onclick = () => changePage(1);
+    paginationContainer.appendChild(firstButton);
+
+    // Add ellipsis if there's a gap
+    if (startPage > 2) {
+      const ellipsis = document.createElement("span");
+      ellipsis.textContent = "...";
+      ellipsis.className = "pagination-ellipsis";
+      ellipsis.style.display = "flex";
+      ellipsis.style.alignItems = "center";
+      ellipsis.style.padding = "0 4px";
+      paginationContainer.appendChild(ellipsis);
+    }
+  }
+
+  // Add page numbers
   for (let i = startPage; i <= endPage; i++) {
     const pageButton = document.createElement("button");
     pageButton.textContent = i;
@@ -862,10 +883,30 @@ function displayPagination(totalProfiles, currentPage) {
     paginationContainer.appendChild(pageButton);
   }
 
+  // Add last page button if not showing
+  if (endPage < totalPages) {
+    // Add ellipsis if there's a gap
+    if (endPage < totalPages - 1) {
+      const ellipsis = document.createElement("span");
+      ellipsis.textContent = "...";
+      ellipsis.className = "pagination-ellipsis";
+      ellipsis.style.display = "flex";
+      ellipsis.style.alignItems = "center";
+      ellipsis.style.padding = "0 4px";
+      paginationContainer.appendChild(ellipsis);
+    }
+
+    const lastButton = document.createElement("button");
+    lastButton.textContent = totalPages;
+    lastButton.className = "pagination-btn";
+    lastButton.onclick = () => changePage(totalPages);
+    paginationContainer.appendChild(lastButton);
+  }
+
   // Next button
   if (currentPage < totalPages) {
     const nextButton = document.createElement("button");
-    nextButton.textContent = "Next";
+    nextButton.textContent = "Next →";
     nextButton.className = "pagination-btn";
     nextButton.onclick = () => changePage(currentPage + 1);
     paginationContainer.appendChild(nextButton);
@@ -877,6 +918,33 @@ function changePage(page) {
   displayProfiles(currentProfiles, currentPage);
 }
 
+// Display action buttons (Back and WhatsApp) on profile view page
+function displayActionButtons(profileCode, page) {
+  const actionButtonsDiv = document.getElementById("actionButtons");
+  
+  if (!actionButtonsDiv) return; // Not on profile view page
+  
+  actionButtonsDiv.innerHTML = `
+    <a href="biodata.html?page=${page}" class="btn btn-back">← Back to Profiles</a>
+    <button onclick="shareViaWhatsApp('${profileCode}')" class="btn btn-whatsapp">💬 Get Contact Info</button>
+  `;
+}
+
+// Share profile via WhatsApp to admin
+function shareViaWhatsApp(profileCode) {
+  if (typeof ADMIN_WHATSAPP === 'undefined') {
+    alert("Admin WhatsApp number not configured.");
+    return;
+  }
+  
+  const message = `Hello, I'm interested in profile code: ${profileCode}. Please provide me the contact information.`;
+  const encodedMessage = encodeURIComponent(message);
+  const whatsappUrl = `https://wa.me/${ADMIN_WHATSAPP}?text=${encodedMessage}`;
+  
+  // Open WhatsApp in new tab
+  window.open(whatsappUrl, '_blank');
+}
+
 const allProfiles = [...maleProfiles, ...femaleProfiles];
 const params = new URLSearchParams(window.location.search);
 const code = params.get("code");
@@ -886,6 +954,9 @@ const details = document.getElementById("profileDetails");
 
 if (details) {
   if (profile) {
+    // Display action buttons
+    displayActionButtons(code, page);
+    
     details.innerHTML = `
       <img src="${profile.image}" alt="${profile.name}">
       <div class="details-content">
@@ -910,11 +981,11 @@ if (details) {
 <p><strong>सध्याचे ठिकाण:</strong> ${profile.expectations}</p>
 <p><strong>अपेक्षा:</strong> ${profile.expectations}</p>
 
-        <a href="biodata.html?page=${page}" class="btn">Back to Profiles</a>
       </div>
     `;
   } else {
-    details.innerHTML = `<h2>Profile not found</h2><a href="biodata.html?page=${page}" class="btn">Back to Profiles</a>`;
+    displayActionButtons(code, page);
+    details.innerHTML = `<h2>Profile not found</h2>`;
   }
 }
 
