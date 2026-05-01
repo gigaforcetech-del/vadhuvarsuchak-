@@ -1708,7 +1708,7 @@ expectations: ""
   Birthplace: "जुन्नर",
   Birthtime: "रात्री 10:05",
   location: "पुणे",
-  image: "images/JF11179-face .jpeg",
+  image: "images/JF11179-face.jpeg",
   Fathername: "संजय ढाकले",
   Fatheroccupation: "",
   Mothername: "प्रेरणा ढाकले",
