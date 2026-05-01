@@ -1,5 +1,6 @@
 ﻿let currentProfiles = [];
 let currentPage = 1;
+let visibleProfiles = [];
 let currentProfileType = "";
 const profilesPerPage = 4; // Show 4 profiles per page
 
@@ -19,10 +20,12 @@ function showProfiles(type) {
   // Reset filters and pagination
   document.getElementById("professionFilter").value = "";
   document.getElementById("ageFilter").value = "";
+  document.getElementById("heightFilter").value = "";
+  visibleProfiles = currentProfiles;
   currentPage = 1;
 
   updateBiodataUrl();
-  displayProfiles(currentProfiles, currentPage);
+  displayProfiles(visibleProfiles, currentPage);
 }
 
 function displayProfiles(profiles, page = 1) {
@@ -159,7 +162,7 @@ function displayPagination(totalProfiles, currentPage) {
 function changePage(page) {
   currentPage = page;
   updateBiodataUrl();
-  displayProfiles(currentProfiles, currentPage);
+  displayProfiles(visibleProfiles, currentPage);
 }
 
 function updateBiodataUrl() {
@@ -256,20 +259,54 @@ if (details) {
 function applyFilters() {
   const profession = document.getElementById("professionFilter").value.toLowerCase();
   const age = document.getElementById("ageFilter").value;
+  const minHeight = document.getElementById("heightFilter").value;
 
-  let filtered = currentProfiles.filter(p => {
-    let matchProfession = profession === "" || p.profession.toLowerCase().includes(profession);
+  visibleProfiles = currentProfiles.filter(p => {
+    const profileProfession = (p.profession || "").toLowerCase();
+    let matchProfession = profession === "" || profileProfession.includes(profession);
 
     let matchAge = true;
     if (age !== "") {
       matchAge = parseInt(p.age) <= parseInt(age);
     }
 
-    return matchProfession && matchAge;
+    let matchHeight = true;
+    if (minHeight !== "") {
+      const profileHeight = parseHeightToInches(p.height);
+      matchHeight = profileHeight !== null && profileHeight >= parseInt(minHeight);
+    }
+
+    return matchProfession && matchAge && matchHeight;
   });
 
   currentPage = 1; // Reset to first page when filtering
-  displayProfiles(filtered, currentPage);
+  displayProfiles(visibleProfiles, currentPage);
+}
+
+function parseHeightToInches(height) {
+  if (!height) return null;
+
+  const normalized = String(height)
+    .replace(/[०-९]/g, digit => "०१२३४५६७८९".indexOf(digit))
+    .replace(/[“”]/g, '"')
+    .replace(/[‘’]/g, "'")
+    .toLowerCase();
+
+  const feetMatch = normalized.match(/(\d+)\s*(?:फूट|feet|foot|ft|')/);
+  const inchMatch = normalized.match(/(\d+)\s*(?:इंच|inch|in|")/);
+  const dottedMatch = normalized.match(/(\d+)\s*\.\s*(\d{1,2})/);
+
+  if (feetMatch) {
+    const feet = parseInt(feetMatch[1]);
+    const inches = inchMatch ? parseInt(inchMatch[1]) : 0;
+    return feet * 12 + inches;
+  }
+
+  if (dottedMatch) {
+    return parseInt(dottedMatch[1]) * 12 + parseInt(dottedMatch[2]);
+  }
+
+  return null;
 }
 
 // Initialize page on biodata.html load
@@ -281,11 +318,12 @@ if (window.location.pathname.includes('biodata.html')) {
   if (typeParam || pageParam) {
     currentProfileType = typeParam === "male" ? "male" : "female";
     currentProfiles = currentProfileType === "male" ? maleProfiles : femaleProfiles;
+    visibleProfiles = currentProfiles;
     currentPage = parseInt(pageParam) || 1;
     document.getElementById("profileTitle").textContent = currentProfileType === "male"
       ? "Male Biodata Profiles"
       : "Female Biodata Profiles";
     updateBiodataUrl();
-    displayProfiles(currentProfiles, currentPage);
+    displayProfiles(visibleProfiles, currentPage);
   }
 }
