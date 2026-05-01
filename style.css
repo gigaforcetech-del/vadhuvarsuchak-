@@ -38,6 +38,14 @@ nav a {
   font-size: 16px;
 }
 
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+}
+
 nav a:hover {
   text-decoration: underline;
 }
@@ -156,11 +164,19 @@ nav a:hover {
 .action-buttons {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 12px;
   flex-wrap: wrap;
   margin-top: 40px;
   margin-bottom: 0;
   padding: 0 20px;
+}
+
+.action-buttons .btn {
+  width: min(100%, 320px);
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }
 
 /* Back button style */
@@ -277,6 +293,66 @@ nav a:hover {
   font-size: 14px !important;
   color: #555;
   line-height: 1.6;
+}
+
+/* Success Stories */
+.success-section {
+  background: #fff7f2;
+}
+
+.success-grid {
+  max-width: 1000px;
+  margin: 30px auto 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.story-card {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  background: #fff;
+  padding: 18px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  text-align: left;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.story-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.14);
+}
+
+.story-card img {
+  width: 130px;
+  height: 130px;
+  border-radius: 10px;
+  object-fit: cover;
+  object-position: center top;
+  flex-shrink: 0;
+}
+
+.story-content h3 {
+  color: #ff4d6d;
+  margin-bottom: 8px;
+  font-size: 20px;
+}
+
+.story-content p {
+  margin: 6px 0;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.story-content .quote {
+  color: #777;
+  font-style: italic;
+}
+
+.success-more-btn {
+  margin-top: 28px;
 }
 
 /* ── SUBSCRIPTION PLAN ── */
@@ -425,7 +501,23 @@ nav a:hover {
 
 /* ── SELECTION BUTTONS (biodata.html) ── */
 .selection-buttons {
-  margin: 25px 0;
+  width: min(100%, 620px);
+  margin: 25px auto;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 14px;
+}
+
+.selection-buttons .btn {
+  flex: 1 1 0;
+  max-width: 280px;
+  min-height: 46px;
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .profile-title {
@@ -477,9 +569,11 @@ nav a:hover {
 }
 
 .biodata-card img {
-  width: auto;
-  height: auto;
+  width: 100%;
+  height: 280px;
+  display: block;
   object-fit: cover;
+  object-position: center top;
 }
 
 .biodata-content {
@@ -518,7 +612,11 @@ nav a:hover {
 }
 
 .profile-details img {
+  width: 300px;
+  max-width: 100%;
+  max-height: 420px;
   object-fit: cover;
+  object-position: center top;
   border: 4px solid #7b1e73;
   flex-shrink: 0;
 }
@@ -541,9 +639,39 @@ nav a:hover {
 
 /* ── RESPONSIVE PROFILE DETAILS ── */
 @media (max-width: 768px) {
+  .success-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .story-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .story-card img {
+    width: 100%;
+    height: 220px;
+  }
+
+  .selection-buttons {
+    width: min(100%, 420px);
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .selection-buttons .btn {
+    width: 100%;
+    max-width: none;
+    min-height: 44px;
+  }
+
   .action-buttons {
     flex-direction: column;
     gap: 10px;
+  }
+
+  .action-buttons .btn {
+    max-width: 320px;
   }
 
   .btn {
@@ -560,8 +688,10 @@ nav a:hover {
   }
 
   .profile-details img {
-    width: auto;
+    width: min(100%, 320px);
     height: auto;
+    max-height: none;
+    object-fit: contain;
   }
 
   .profile-details .details-content {
@@ -583,14 +713,29 @@ nav a:hover {
 /* ── RESPONSIVE ── */
 @media (max-width: 768px) {
   .header {
-    padding: 15px 20px;
+    padding: 12px 16px;
     flex-direction: column;
-    gap: 10px;
+    gap: 12px;
+    text-align: center;
+  }
+
+  .logo {
+    font-size: 18px;
+    line-height: 1.3;
+  }
+
+  nav {
+    width: 100%;
+    gap: 8px;
   }
 
   nav a {
-    margin: 0 6px;
-    font-size: 13px;
+    margin: 0;
+    font-size: 12px;
+    line-height: 1;
+    padding: 8px 10px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.14);
   }
 
   .login-name {
@@ -612,19 +757,72 @@ nav a:hover {
   }
 
   .hero-content h1 {
-    font-size: 28px;
+    font-size: 30px;
+    line-height: 1.2;
+  }
+
+  .hero {
+    min-height: calc(100vh - 128px);
+    padding: 44px 18px;
+    background-position: center top;
+  }
+
+  .hero-content p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 22px;
   }
 
   .section {
-    padding: 50px 20px;
+    padding: 46px 18px;
+  }
+
+  .section h2 {
+    font-size: 26px;
+    line-height: 1.25;
+  }
+
+  .section p {
+    font-size: 15px;
+    line-height: 1.65;
+  }
+
+  .how-subtitle {
+    margin-bottom: 26px !important;
+  }
+
+  .steps-grid,
+  .cards,
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .step-card,
+  .card,
+  .contact-item {
+    padding: 20px 16px;
   }
 
   .plan-card {
-    padding: 35px 24px 28px;
+    width: 100%;
+    padding: 34px 20px 26px;
+    border-radius: 14px;
   }
 
   .plan-price {
     font-size: 44px;
+  }
+
+  .plan-features li {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .footer {
+    margin-top: 24px;
+    padding: 18px 16px;
+    font-size: 13px;
   }
 }
 
@@ -708,12 +906,74 @@ nav a:hover {
 
 @media (max-width: 480px) {
   .header {
-    padding: 10px 12px;
+    padding: 10px 10px;
+  }
+
+  .logo {
+    font-size: 16px;
+  }
+
+  nav {
+    gap: 6px;
   }
 
   nav a {
-    margin: 0 4px;
+    margin: 0;
     font-size: 11px;
+    padding: 7px 8px;
+  }
+
+  .hero {
+    min-height: calc(100vh - 118px);
+    padding: 34px 14px;
+  }
+
+  .hero-content h1 {
+    font-size: 24px;
+  }
+
+  .hero-content p {
+    font-size: 14px;
+  }
+
+  .section {
+    padding: 38px 14px;
+  }
+
+  .section h2 {
+    font-size: 23px;
+  }
+
+  .success-grid,
+  .steps-grid,
+  .cards,
+  .contact-grid {
+    margin-top: 22px;
+  }
+
+  .story-card {
+    padding: 14px;
+  }
+
+  .story-card img {
+    height: 190px;
+  }
+
+  .story-content h3 {
+    font-size: 18px;
+  }
+
+  .plan-card {
+    padding: 32px 16px 22px;
+  }
+
+  .plan-price {
+    font-size: 38px;
+  }
+
+  .contact-item {
+    justify-content: center;
+    text-align: center;
   }
 
   .login-name {
@@ -741,8 +1001,21 @@ nav a:hover {
     padding: 0 10px;
   }
 
+  .biodata-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .biodata-card img {
+    height: 240px;
+  }
+
+  .profile-details img {
+    width: 100%;
+  }
+
   .btn {
     width: 100%;
+    max-width: 320px;
     padding: 10px 16px;
     font-size: 13px;
     margin: 0;

@@ -1,4 +1,4 @@
-const maleProfiles = [
+﻿const maleProfiles = [
   // {
   //   code: "JM001",
   //   name: "Rahul Shinde",
@@ -857,277 +857,630 @@ expectations: ""
   Siblings: "1 भाऊ - शुभम अर्जुन वाकडे (अविवाहित)",
   Relatives: "शिंदे, मनकर, देशमुख, पवार, ठोसर, बांगर, पोंधळकर",
   expectations: ""
+},{
+  code: "JF11146",
+  name: "भाग्यश्री अशोक नेतेवकर",
+  age: "26",
+  dateOfBirth: "23/08/1999",
+  caste: "हिंदू - मराठा",
+  ras: "धनु",
+  गण: "राक्षस",
+  नाडी: "मध्य",
+  देवक: "कवड",
+  education: "BSC Physics",
+  profession: "",
+  bloodGroup: "",
+  height: "5 फूट 3 इंच",
+  Birthplace: "बेल्हा ता. जुन्नर, पुणे",
+  Birthtime: "सकाळी 7:23 वा.",
+  location: "मु.पो. बेल्हा ता. जुन्नर, पुणे",
+  image: "images/JF11148-face.png",
+  Fathername: "श्री. अशोक बाबाजी नेतेवकर",
+  Fatheroccupation: "",
+  Mothername: "सौ. सुनिता अशोक नेतेवकर",
+  Motheroccupation: "",
+  Siblings: "भाऊ - विकास अशोक नेतेवकर (विवाहित)",
+  Relatives: "ओर, भोसले, गाडे, कुंभार, कदम, अडे, गोरडे, धोत्रे, औटी, घोडके, खेडेकर, कुंभार, हुले, गिराटे, आग्रे, शिंदे",
+  expectations: ""
 }
-];
-
- 
-
-let currentProfiles = [];
-let currentPage = 1;
-const profilesPerPage = 4; // Show 4 profiles per page
-
-function showProfiles(type) {
-  const container = document.getElementById("profileContainer");
-  const title = document.getElementById("profileTitle");
-
-  if (type === "male") {
-    currentProfiles = maleProfiles;
-    title.textContent = "Male Biodata Profiles";
-  } else {
-    currentProfiles = femaleProfiles;
-    title.textContent = "Female Biodata Profiles";
-  }
-
-  // Reset filters and pagination
-  document.getElementById("professionFilter").value = "";
-  document.getElementById("ageFilter").value = "";
-  currentPage = 1;
-
-  displayProfiles(currentProfiles, currentPage);
+,{
+  code: "JF11147",
+  name: "कु. वैष्णवी प्रमोद कोरे",
+  age: "27",
+  dateOfBirth: "07/06/1998",
+  caste: "हिंदू - मराठा",
+  ras: "मिथुन",
+  गण: "मनुष्य",
+  नाडी: "आद्य",
+  देवक: "वासनकुळ",
+  education: "M.Com (Banking and Finance)",
+  profession: "Link Group, Vikhroli West",
+  bloodGroup: "A+",
+  height: "5 फूट",
+  Birthplace: "शिरूर, ता. जुन्नर, जि. पुणे",
+  Birthtime: "",
+  location: "विख्रोली (प.), मुंबई",
+  image: "images/JF11147-face.png",
+  Fathername: "श्री. प्रमोद बाळाजी कोरे",
+  Fatheroccupation: "गव्हर्नमेंट & बँकिंग सेवा (निवृत्त)",
+  Mothername: "सौ. वर्षा प्रमोद कोरे",
+  Motheroccupation: "गृहिणी",
+  Siblings: "भाऊ - गणेश प्रमोद कोरे (विवाहित)",
+  Relatives: "काळे, लोखंडे, सुकाळे, बोंडके, बोर, बोरुळे, कारंडे, डुंडे, देडे, गाडे",
+  expectations: ""
+},
+{
+  code: "JF11148",
+  name: "प्राजक्ता बाळासाहेब फाफळे",
+  age: "27",
+  dateOfBirth: "14/06/1999",
+  caste: "हिंदू - मराठा",
+  ras: "तुळ",
+  गण: "देव",
+  नाडी: "अंत्य",
+  देवक: "कवड",
+  education: "B.E (Computer)",
+  profession: "Software Engineer (Cybage)",
+  bloodGroup: "A+",
+  height: "5.1 फूट",
+  Birthplace: "नारायणगाव",
+  Birthtime: "सकाळी 9:30 वा.",
+  location: "शुभमंगल सोसायटी, धामणखेल, नारायणगाव, ता. जुन्नर, जि. पुणे",
+  image: "images/JF11148-face.png",
+  Fathername: "डॉ. बाळासाहेब खंडुजी फाफळे",
+  Fatheroccupation: "पशुवैद्यकीय डॉक्टर",
+  Mothername: "सुनिता बाळासाहेब फाफळे",
+  Motheroccupation: "शिक्षिका",
+  Siblings: "भाऊ - शुभम बाळासाहेब फाफळे (अविवाहित)",
+  Relatives: "इंडे, शेटे, बेडे, कुलकर्णी, आरटे, कोकाटे, हांडे, बाळुंज, निंबाळे",
+  expectations: ""
 }
-
-function displayProfiles(profiles, page = 1) {
-  const container = document.getElementById("profileContainer");
-  const startIndex = (page - 1) * profilesPerPage;
-  const endIndex = startIndex + profilesPerPage;
-  const profilesToShow = profiles.slice(startIndex, endIndex);
-
-  container.innerHTML = "";
-
-  profilesToShow.forEach(profile => {
-    const card = document.createElement("div");
-    card.className = "biodata-card";
-    card.tabIndex = 0;
-
-    card.innerHTML = `
-      <div class="biodata-code-badge"># ${profile.code}</div>
-      <img src="${profile.image}" alt="${profile.name}">
-      <div class="biodata-content">
-        <h3>${profile.name}</h3>
-        <p><strong>Profile Code:</strong> <span class="profile-code">${profile.code}</span></p>
-        <p><strong>वय:</strong> ${profile.age}</p>
-        <p><strong>शिक्षण:</strong> ${profile.education}</p>
-        <p><strong>Profession:</strong> ${profile.profession}</p>
-        <p><strong>उंची:</strong> ${profile.height}</p>
-        <p><strong>ठिकाण:</strong> ${profile.location}</p>
-        <p><strong>पगार:</strong> ${profile.family}</p>
-      </div>
-    `;
-
-    const goToDetail = () => {
-      window.location.href = `view-profile.html?code=${profile.code}&page=${currentPage}`;
-    };
-
-    card.addEventListener("click", goToDetail);
-    card.addEventListener("keypress", event => {
-      if (event.key === "Enter" || event.key === " ") {
-        goToDetail();
-      }
-    });
-
-    container.appendChild(card);
-  });
-
-  // Add pagination controls
-  displayPagination(profiles.length, page);
+,
+{
+  code: "JF11149",
+  name: "कु. पूनम बाबुराव घाडो",
+  age: "27",
+  dateOfBirth: "03/12/1998",
+  caste: "हिंदू - मराठा",
+  ras: "वृषभ",
+  गण: "वैश्य",
+  नाडी: "अंत्य",
+  देवक: "चंद्र - सूर्य",
+  education: "BSC MLT",
+  profession: "Metropolis Health Care Ltd",
+  bloodGroup: "B+",
+  height: "5 फूट 3 इंच",
+  Birthplace: "",
+  Birthtime: "रात्री 11:00",
+  location: "रूम नं 50, लक्ष्मी निवास सोसायटी, संजय कोकाटे लेन, घाटकोपर पश्चिम, मुंबई 400084",
+  image: "poonam_baburao_ghado.jpeg",
+  Fathername: "श्री. बाबुराव किसन घाडो",
+  Fatheroccupation: "",
+  Mothername: "सौ. लता बाबुराव घाडो",
+  Motheroccupation: "",
+  Siblings: "",
+  Relatives: "थोरात, ओटे, चिकणे, फाफळे, नेहेरकर, हांडे, कराडे",
+  expectations: ""
 }
-
-function displayPagination(totalProfiles, currentPage) {
-  const paginationContainer = document.getElementById("paginationContainer");
-  paginationContainer.innerHTML = "";
-
-  const totalPages = Math.ceil(totalProfiles / profilesPerPage);
-
-  if (totalPages <= 1) return; // No pagination needed for single page
-
-  // Previous button
-  if (currentPage > 1) {
-    const prevButton = document.createElement("button");
-    prevButton.textContent = "← Pre";
-    prevButton.className = "pagination-btn";
-    prevButton.onclick = () => changePage(currentPage - 1);
-    paginationContainer.appendChild(prevButton);
-  }
-
-  // Page numbers with smart ellipsis
-  const maxVisiblePages = 5;
-  let startPage = Math.max(1, currentPage - Math.floor(maxVisiblePages / 2));
-  let endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
-
-  if (endPage - startPage + 1 < maxVisiblePages) {
-    startPage = Math.max(1, endPage - maxVisiblePages + 1);
-  }
-
-  // Add first page button if not showing
-  if (startPage > 1) {
-    const firstButton = document.createElement("button");
-    firstButton.textContent = "1";
-    firstButton.className = "pagination-btn";
-    firstButton.onclick = () => changePage(1);
-    paginationContainer.appendChild(firstButton);
-
-    // Add ellipsis if there's a gap
-    if (startPage > 2) {
-      const ellipsis = document.createElement("span");
-      ellipsis.textContent = "...";
-      ellipsis.className = "pagination-ellipsis";
-      ellipsis.style.display = "flex";
-      ellipsis.style.alignItems = "center";
-      ellipsis.style.padding = "0 4px";
-      paginationContainer.appendChild(ellipsis);
-    }
-  }
-
-  // Add page numbers
-  for (let i = startPage; i <= endPage; i++) {
-    const pageButton = document.createElement("button");
-    pageButton.textContent = i;
-    pageButton.className = `pagination-btn ${i === currentPage ? 'active' : ''}`;
-    pageButton.onclick = () => changePage(i);
-    paginationContainer.appendChild(pageButton);
-  }
-
-  // Add last page button if not showing
-  if (endPage < totalPages) {
-    // Add ellipsis if there's a gap
-    if (endPage < totalPages - 1) {
-      const ellipsis = document.createElement("span");
-      ellipsis.textContent = "...";
-      ellipsis.className = "pagination-ellipsis";
-      ellipsis.style.display = "flex";
-      ellipsis.style.alignItems = "center";
-      ellipsis.style.padding = "0 4px";
-      paginationContainer.appendChild(ellipsis);
-    }
-
-    const lastButton = document.createElement("button");
-    lastButton.textContent = totalPages;
-    lastButton.className = "pagination-btn";
-    lastButton.onclick = () => changePage(totalPages);
-    paginationContainer.appendChild(lastButton);
-  }
-
-  // Next button
-  if (currentPage < totalPages) {
-    const nextButton = document.createElement("button");
-    nextButton.textContent = "Next →";
-    nextButton.className = "pagination-btn";
-    nextButton.onclick = () => changePage(currentPage + 1);
-    paginationContainer.appendChild(nextButton);
-  }
+,
+{
+  code: "JF11150",
+  name: "कु. तेजश्री भाऊसाहेब शेळके",
+  age: "26",
+  dateOfBirth: "29/07/1999",
+  caste: "हिंदू - मराठा",
+  ras: "",
+  गण: "",
+  नाडी: "",
+  देवक: "मोराचे पिस",
+  education: "बी.ई. (आय.टी.)",
+  profession: "MotifWorks India Pvt.Ltd, Pune (20 LPA)",
+  bloodGroup: "B+ve",
+  height: "5 फूट 7 इंच",
+  Birthplace: "श्रीरामपूर",
+  Birthtime: "सकाळी 10:45",
+  location: "श्रीरामपूर, जि. अहमदनगर",
+  image: "JF11150.jpeg",
+  Fathername: "भाऊसाहेब एकनाथ शेळके",
+  Fatheroccupation: "सेवानिवृत्त प्रादेशिक व्यवस्थापक",
+  Mothername: "मंगल भाऊसाहेब शेळके",
+  Motheroccupation: "गृहिणी",
+  Siblings: "",
+  Relatives: "कडू, रिठे, वाघ, कासार, देव, ढोरके, पोल, कापसे, अडोळे, झुरळे, पळसाणे",
+  expectations: ""
+},
+{
+  code: "JF11151",
+  name: "कु. अर्चना रामदास धोत्रे",
+  age: "27",
+  dateOfBirth: "06/09/1998",
+  caste: "हिंदू - मराठा",
+  ras: "मकर",
+  गण: "",
+  नाडी: "अंत्य",
+  देवक: "सोडस",
+  education: "B.Com",
+  profession: "National Co-op Bank",
+  bloodGroup: "AB+",
+  height: "5 फूट 5 इंच",
+  Birthplace: "नारायणगाव",
+  Birthtime: "दुपारी 2:30",
+  location: "नवी मुंबई",
+  image: "JF11151.jpeg",
+  Fathername: "रामदास गणपती धोत्रे",
+  Fatheroccupation: "",
+  Mothername: "शकुंतला रामदास धोत्रे",
+  Motheroccupation: "",
+  Siblings: "1 भाऊ",
+  Relatives: "मोरे, ढोले, लोखंडे, बोचरे, वाघ, नेहेरे, कुटिक",
+  expectations: ""
+},
+{
+  code: "JF11152",
+  name: "कु. सुप्रिया संजय तानपुरे",
+  age: "29",
+  dateOfBirth: "03/06/1997",
+  caste: "हिंदू - मराठा",
+  ras: "मेष",
+  गण: "मानव",
+  नाडी: "मध्य",
+  देवक: "पाचपाळी",
+  education: "B.E Computer",
+  profession: "Accenture Pvt Ltd",
+  bloodGroup: "O+ve",
+  height: "5 फूट 4 इंच",
+  Birthplace: "ओतूर",
+  Birthtime: "सकाळी 8:00",
+  location: "जुन्नर, पुणे",
+  image: "JF11152.jpeg",
+  Fathername: "संजय देवकराम तानपुरे",
+  Fatheroccupation: "",
+  Mothername: "पूजा संजय तानपुरे",
+  Motheroccupation: "",
+  Siblings: "1 भाऊ, 1 बहीण",
+  Relatives: "शेवाळे, घोरपडे, माळकर, शिंदे, वामन",
+  expectations: ""
+},
+{
+  code: "JF11153",
+  name: "कविता विनायक जाधव",
+  age: "31",
+  dateOfBirth: "25/02/1995",
+  caste: "हिंदू - मराठा",
+  ras: "तुला",
+  गण: "राक्षस",
+  नाडी: "मध्य",
+  देवक: "पाचपाळी",
+  education: "M.A., B.Ed",
+  profession: "शासकीय सेवेत",
+  bloodGroup: "A+ve",
+  height: "5 फूट 3 इंच",
+  Birthplace: "अहमदनगर",
+  Birthtime: "",
+  location: "",
+  image: "JF11153.jpeg",
+  Fathername: "विनायक जाधव",
+  Fatheroccupation: "Service",
+  Mothername: "",
+  Motheroccupation: "",
+  Siblings: "",
+  Relatives: "पाटील, जाधव, मगर",
+  expectations: ""
+},
+{
+  code: "JF11154",
+  name: "दिव्या दिलीप शेळार",
+  age: "24",
+  dateOfBirth: "27/02/2002",
+  caste: "हिंदू - मराठा",
+  ras: "मेष",
+  गण: "देव",
+  नाडी: "आद्य",
+  देवक: "पाचपाळी",
+  education: "B.E (EXTC)",
+  profession: "जॉन्सन कंट्रोल",
+  bloodGroup: "O+",
+  height: "5 फूट 4 इंच",
+  Birthplace: "नारायणगाव",
+  Birthtime: "रात्री 11:00",
+  location: "कोपरखैरणे, नवी मुंबई",
+  image: "JF11154.jpeg",
+  Fathername: "दिलीप दत्तात्रय शेळार",
+  Fatheroccupation: "",
+  Mothername: "वंदना दिलीप शेळार",
+  Motheroccupation: "",
+  Siblings: "1 भाऊ",
+  Relatives: "पडवळ, गाढवे, काकडे, काशी, नोबळे",
+  expectations: ""
+},
+{
+  code: "JF11155",
+  name: "कु. प्राजक्ता रोहिदास मोरे",
+  age: "30",
+  dateOfBirth: "31/10/1996",
+  caste: "हिंदू - मराठा",
+  ras: "कन्या",
+  गण: "मनुष्य",
+  नाडी: "आद्य",
+  देवक: "पाचपाळी",
+  education: "B.E EXTC",
+  profession: "Accenture Services Private Limited",
+  bloodGroup: "A+",
+  height: "5 फूट 3 इंच",
+  Birthplace: "मुंबई",
+  Birthtime: "रात्री 8:30",
+  location: "डोंबिवली",
+  image: "JF11155.jpeg",
+  Fathername: "रोहिदास गंगाराम मोरे",
+  Fatheroccupation: "",
+  Mothername: "संगिता रोहिदास मोरे",
+  Motheroccupation: "",
+  Siblings: "1 बहीण",
+  Relatives: "काळे, लवटे, जाधव, कुंभार",
+  expectations: ""
+},
+{
+  code: "JF11156",
+  name: "शिवांजली मंगेश दुंबरे",
+  age: "28",
+  dateOfBirth: "29/04/1998",
+  caste: "हिंदू - मराठा",
+  ras: "",
+  गण: "",
+  नाडी: "",
+  देवक: "पाचपाळी",
+  education: "B.E Mechanical",
+  profession: "Avians Innovation Technology",
+  bloodGroup: "O+",
+  height: "5 फूट 2 इंच",
+  Birthplace: "नारायणगाव",
+  Birthtime: "सायं. 06:10",
+  location: "जुन्नर, पुणे",
+  image: "JF11156.jpeg",
+  Fathername: "मंगेश उत्तमराव दुंबरे",
+  Fatheroccupation: "",
+  Mothername: "मंगल मंगेश दुंबरे",
+  Motheroccupation: "",
+  Siblings: "1 भाऊ",
+  Relatives: "वाघळे, गोडसे, धोत्रे, जाधव",
+  expectations: "पुण्यात नोकरी करणारा मुलगा"
+},
+{
+  code: "JF11157",
+  name: "सरस्वती अरुण सोलाट",
+  age: "26",
+  dateOfBirth: "04/01/2000",
+  caste: "हिंदू - मराठा",
+  ras: "",
+  गण: "",
+  नाडी: "",
+  देवक: "पाचपाळी",
+  education: "M.DES, B.VOC",
+  profession: "मुंबई येथे कंपनीत इंटर्न",
+  bloodGroup: "B+",
+  height: "5 फूट 3 इंच",
+  Birthplace: "",
+  Birthtime: "दुपारी 12:39",
+  location: "मुंबई",
+  image: "JF11157.jpeg",
+  Fathername: "अरुण सोलाट",
+  Fatheroccupation: "",
+  Mothername: "विनिता सोलाट",
+  Motheroccupation: "",
+  Siblings: "2 बहिणी",
+  Relatives: "पारसेकर, जाधव, शिंदे",
+  expectations: ""
+},
+{
+  code: "JF11158",
+  name: "सोनल सुभाष कोकाटे",
+  age: "30",
+  dateOfBirth: "04/01/1996",
+  caste: "हिंदू - मराठा",
+  ras: "वृषभ",
+  गण: "देव",
+  नाडी: "मध्य",
+  देवक: "मोरिताचे कडे",
+  education: "M.Com",
+  profession: "",
+  bloodGroup: "O+",
+  height: "5.4",
+  Birthplace: "जुन्नर",
+  Birthtime: "सकाळी 7:15",
+  location: "भांडुप, मुंबई",
+  image: "JF11158.jpeg",
+  Fathername: "सुभाष कोकाटे",
+  Fatheroccupation: "",
+  Mothername: "कविता कोकाटे",
+  Motheroccupation: "",
+  Siblings: "1 भाऊ",
+  Relatives: "हाडवळे, मोरे, महाकाल, वाघ",
+  expectations: ""
+},
+{
+  code: "JF11159",
+  name: "मृणाली रामदास काळे",
+  age: "27",
+  dateOfBirth: "02/08/1998",
+  caste: "हिंदू - मराठा",
+  ras: "वृश्चिक",
+  गण: "राक्षस",
+  नाडी: "अंत्य",
+  देवक: "पाचपाळी",
+  education: "B.Sc, MBA Healthcare",
+  profession: "Lab Technician",
+  bloodGroup: "B+",
+  height: "5 फूट 5 इंच",
+  Birthplace: "ठाणे",
+  Birthtime: "सकाळी 5:25",
+  location: "बदलापूर",
+  image: "JF11159.jpeg",
+  Fathername: "रामदास जयराम काळे",
+  Fatheroccupation: "",
+  Mothername: "संघमाबाई रामदास काळे",
+  Motheroccupation: "",
+  Siblings: "1 भाऊ, 1 बहीण",
+  Relatives: "बोडके, शिंगोटे, पिंगळे, जाधव",
+  expectations: ""
+},
+{
+  code: "JF11160",
+  name: "कु. आश्विनी मोहन घोडे",
+  age: "25",
+  dateOfBirth: "18/07/2000",
+  caste: "हिंदू मराठा",
+  ras: "",
+  गण: "देव",
+  नाडी: "अंत्य",
+  देवक: "पानकुळी",
+  education: "B. Pharmacy",
+  profession: "Fortrea Scientific Private Ltd., Hinjewadi, Pune",
+  bloodGroup: "B+ve",
+  height: "5 फूट 3 इंच",
+  Birthplace: "घोडेगाव",
+  Birthtime: "सकाळी 10:02",
+  location: "जुन्नर, पुणे",
+  image: "JF11160.jpeg",
+  Fathername: "श्री. मोहन घोडे",
+  Fatheroccupation: "किराणा स्टोअर्स व शेती",
+  Mothername: "सौ. कांचन मोहन घोडे",
+  Motheroccupation: "गृहिणी",
+  Siblings: "1 भाऊ",
+  Relatives: "घोडे, गांगळे, देशमुख, पारखे, माने",
+  expectations: ""
+},
+{
+  code: "JF11161",
+  name: "कु. तेजश्री विजयकुमार मगर",
+  age: "26",
+  dateOfBirth: "20/02/1999",
+  caste: "हिंदू मराठा",
+  ras: "वृश्चिक",
+  गण: "राक्षस",
+  नाडी: "आद्य",
+  देवक: "साळुंकी पंखी",
+  education: "M.A. B.Ed.",
+  profession: "जलसंपदा विभाग, पुणे",
+  bloodGroup: "B+",
+  height: "5.1 फूट",
+  Birthplace: "केडगाव, अहमदनगर",
+  Birthtime: "संध्याकाळी 06:25",
+  location: "अहमदनगर",
+  image: "JF11161.jpeg",
+  Fathername: "प्रा. विजयकुमार मगर",
+  Fatheroccupation: "प्राध्यापक",
+  Mothername: "सौ. मीनाक्षी मगर",
+  Motheroccupation: "शिक्षिका",
+  Siblings: "1 भाऊ",
+  Relatives: "जाधव, पवार, शिंदे, मगर",
+  expectations: ""
+},
+{
+  code: "JF11162",
+  name: "सायली रविंद्र काकडे",
+  age: "25",
+  dateOfBirth: "08/09/1999",
+  caste: "हिंदू मराठा",
+  ras: "सिंह",
+  गण: "राक्षस",
+  नाडी: "अंत्य",
+  देवक: "मरिताचे कडे",
+  education: "Bachelor of Computer Engineering",
+  profession: "Software Developer (10 LPA) Piramal Finance Limited",
+  bloodGroup: "A+",
+  height: "5 फूट 3 इंच",
+  Birthplace: "मंचर",
+  Birthtime: "दुपारी 12:00",
+  location: "नेरळ, नवी मुंबई",
+  image: "JF11162.jpeg",
+  Fathername: "श्री. रविंद्र काकडे",
+  Fatheroccupation: "",
+  Mothername: "सौ. वैशाली काकडे",
+  Motheroccupation: "",
+  Siblings: "1 भाऊ",
+  Relatives: "गावडे, पवार, राठोड, तावरे",
+  expectations: ""
+},
+{
+  code: "JF11163",
+  name: "कु. ज्योती एकनाथ पिंगळे",
+  age: "27",
+  dateOfBirth: "29/06/1997",
+  caste: "हिंदू मराठा",
+  ras: "मेष",
+  गण: "देवगण",
+  नाडी: "आद्य",
+  देवक: "पाचपळी",
+  education: "M.Com",
+  profession: "Ezo Technologies Pvt Ltd. (Sr. Accountant)",
+  bloodGroup: "O+",
+  height: "5 फूट",
+  Birthplace: "नवी मुंबई",
+  Birthtime: "रात्री 11:44",
+  location: "कोपरखैरणे, नवी मुंबई",
+  image: "JF11163.jpeg",
+  Fathername: "श्री. एकनाथ पिंगळे",
+  Fatheroccupation: "",
+  Mothername: "सौ. शारदा पिंगळे",
+  Motheroccupation: "",
+  Siblings: "1 भाऊ",
+  Relatives: "आडक, पोखरकर, पाटील",
+  expectations: ""
+},
+{
+  code: "JF11164",
+  name: "अंकिता हरिश्चंद्र जाधव",
+  age: "26",
+  dateOfBirth: "08/12/1998",
+  caste: "हिंदू मराठा",
+  ras: "मिथुन",
+  गण: "",
+  नाडी: "आद्य",
+  देवक: "पाचपळी",
+  education: "BCA",
+  profession: "IDFC FIRST BANK (Associate Manager)",
+  bloodGroup: "O+ve",
+  height: "5 फूट 3 इंच",
+  Birthplace: "मंचर",
+  Birthtime: "रात्री 11:50",
+  location: "पुणे",
+  image: "JF11164.jpeg",
+  Fathername: "श्री. हरिश्चंद्र जाधव",
+  Fatheroccupation: "शेती",
+  Mothername: "सौ. मीना जाधव",
+  Motheroccupation: "गृहिणी",
+  Siblings: "1 बहीण",
+  Relatives: "भोसले, शिंदे, पवार",
+  expectations: "उच्चशिक्षित, नोकरी करणारा मुलगा"
+},
+{
+  code: "JF11165",
+  name: "वृषाली नंदकिशोर शिंदे",
+  age: "26",
+  dateOfBirth: "14/09/1999",
+  caste: "मराठा",
+  ras: "तुळ",
+  गण: "",
+  नाडी: "",
+  देवक: "",
+  education: "B.Sc. Agri",
+  profession: "अॅग्रो स्टार कंपनी, पुणे",
+  bloodGroup: "",
+  height: "5.7",
+  Birthplace: "कोपरगाव",
+  Birthtime: "रात्री 09:30",
+  location: "अहमदनगर",
+  image: "JF11165.jpeg",
+  Fathername: "श्री. नंदकिशोर शिंदे",
+  Fatheroccupation: "शेती",
+  Mothername: "सौ. सोनाली शिंदे",
+  Motheroccupation: "गृहिणी",
+  Siblings: "1 भाऊ, 1 बहीण",
+  Relatives: "गवांडे, पवार, चव्हाण",
+  expectations: ""
+},
+{
+  code: "JF11166",
+  name: "कु. पूजा बाळू शिंदे",
+  age: "27",
+  dateOfBirth: "27/03/1999",
+  caste: "हिंदू मराठा",
+  ras: "कर्क",
+  गण: "राक्षस",
+  नाडी: "अंत्य",
+  देवक: "सावराचे कडे",
+  education: "B.E. IT",
+  profession: "TCS (System Engineer)",
+  bloodGroup: "B-",
+  height: "5 फूट 8 इंच",
+  Birthplace: "ठाणे",
+  Birthtime: "दुपारी 2",
+  location: "ठाणे",
+  image: "JF11166.jpeg",
+  Fathername: "श्री. बाळू शिंदे",
+  Fatheroccupation: "",
+  Mothername: "सौ. इंदुमती शिंदे",
+  Motheroccupation: "गृहिणी",
+  Siblings: "1 भाऊ",
+  Relatives: "जाधव, कुंटे, शिंदे",
+  expectations: ""
+},
+{
+  code: "JF11167",
+  name: "डॉ. श्वेता सयाजीराव चिखले",
+  age: "26",
+  dateOfBirth: "23/04/1999",
+  caste: "हिंदू मराठा",
+  ras: "मिथुन",
+  गण: "मनुष्य",
+  नाडी: "",
+  देवक: "कडवे खंडोबा",
+  education: "BDS, Certified Endodontist",
+  profession: "स्वतःचे क्लिनिक (24 लाख वार्षिक)",
+  bloodGroup: "B+",
+  height: "5 फूट 5 इंच",
+  Birthplace: "मांजरवाडी",
+  Birthtime: "रात्री 11:30",
+  location: "जुन्नर, पुणे",
+  image: "JF11167.jpeg",
+  Fathername: "श्री. सयाजीराव चिखले",
+  Fatheroccupation: "शिक्षक",
+  Mothername: "सौ. सुमन चिखले",
+  Motheroccupation: "शिक्षिका",
+  Siblings: "2 बहिणी",
+  Relatives: "चिखले, पटोळे, शिंदे",
+  expectations: "MBBS / MD / IT / BDS"
+},
+{
+  code: "JF11168",
+  name: "कु. सुरभी संजय भोर",
+  age: "25",
+  dateOfBirth: "04/06/2000",
+  caste: "मराठा",
+  ras: "मिथुन",
+  गण: "मनुष्य",
+  नाडी: "आद्य",
+  देवक: "वासराचे कडे",
+  education: "B.Pharm, MBA(HR)",
+  profession: "HR Manager",
+  bloodGroup: "AB+",
+  height: "5 फूट 3 इंच",
+  Birthplace: "पिंपळवंडी",
+  Birthtime: "सकाळी 9:21",
+  location: "पुणे",
+  image: "JF11168.jpeg",
+  Fathername: "श्री. संजय भोर",
+  Fatheroccupation: "Govt Electrical Contractor",
+  Mothername: "सौ. वर्षा भोर",
+  Motheroccupation: "गृहिणी",
+  Siblings: "1 भाऊ",
+  Relatives: "भोर, शिंदे, गवांडे",
+  expectations: ""
+},
+{
+  code: "JF11169",
+  name: "कु. सुरभी संजय भोर",
+  age: "25",
+  dateOfBirth: "04/06/2000",
+  caste: "मराठा",
+  ras: "मिथुन",
+  गण: "मनुष्य",
+  नाडी: "आद्य",
+  देवक: "वासराचे कडे",
+  education: "B.Pharm, MBA(HR)",
+  profession: "HR Manager",
+  bloodGroup: "AB+",
+  height: "5 फूट 3 इंच",
+  Birthplace: "पिंपळवंडी",
+  Birthtime: "सकाळी 9:21",
+  location: "पुणे",
+  image: "JF11169.jpeg",
+  Fathername: "श्री. संजय भोर",
+  Fatheroccupation: "Govt Electrical Contractor",
+  Mothername: "सौ. वर्षा भोर",
+  Motheroccupation: "गृहिणी",
+  Siblings: "1 भाऊ",
+  Relatives: "भोर, शिंदे, गवांडे",
+  expectations: ""
 }
-
-function changePage(page) {
-  currentPage = page;
-  displayProfiles(currentProfiles, currentPage);
-}
-
-// Display action buttons (Back and WhatsApp) on profile view page
-function displayActionButtons(profileCode, page) {
-  const actionButtonsDiv = document.getElementById("actionButtons");
-  
-  if (!actionButtonsDiv) return; // Not on profile view page
-  
-  actionButtonsDiv.innerHTML = `
-    <a href="biodata.html?page=${page}" class="btn btn-back">← Back to Profiles</a>
-    <button onclick="shareViaWhatsApp('${profileCode}')" class="btn btn-whatsapp">💬 Get Contact Info</button>
-  `;
-}
-
-// Share profile via WhatsApp to admin
-function shareViaWhatsApp(profileCode) {
-  if (typeof ADMIN_WHATSAPP === 'undefined') {
-    alert("Admin WhatsApp number not configured.");
-    return;
-  }
-  
-  const message = `Hello, I'm interested in profile code: ${profileCode}. Please provide me the contact information.`;
-  const encodedMessage = encodeURIComponent(message);
-  const whatsappUrl = `https://wa.me/${ADMIN_WHATSAPP}?text=${encodedMessage}`;
-  
-  // Open WhatsApp in new tab
-  window.open(whatsappUrl, '_blank');
-}
-
-const allProfiles = [...maleProfiles, ...femaleProfiles];
-const params = new URLSearchParams(window.location.search);
-const code = params.get("code");
-const page = params.get("page") || 1; // Get page parameter, default to 1
-const profile = allProfiles.find(p => p.code === code);
-const details = document.getElementById("profileDetails");
-
-if (details) {
-  if (profile) {
-    // Display action buttons
-    displayActionButtons(code, page);
-    
-    details.innerHTML = `
-      <img src="${profile.image}" alt="${profile.name}">
-      <div class="details-content">
-        <h1>${profile.name}</h1>
-
-<p><strong>Code:</strong> ${profile.code}</p>
-<p><strong>नाव:</strong> ${profile.name}</p>
-<p><strong>वय:</strong> ${profile.age}</p>
-<p><strong>जन्मतारीख:</strong> ${profile.dateOfBirth}</p>
-<p><strong>धर्म:</strong> ${profile.religion}</p>
-<p><strong>जात:</strong> ${profile.caste}</p>
-<p><strong>रक्त गट:</strong> ${profile.bloodGroup}</p>
-<p><strong>रास:</strong> ${profile.ras}</p>
-<p><strong>गण:</strong> ${profile.गण}</p>
-<p><strong>नाडी:</strong> ${profile.नाडी}</p>
-<p><strong>देवक:</strong> ${profile.देवक}</p>
-<p><strong>जन्मस्थळ:</strong> ${profile.Birthplace}</p>
-<p><strong>जन्म वेळ:</strong> ${profile.Birthtime}</p>
-<p><strong>शिक्षण:</strong> ${profile.education}</p>
-<p><strong>नोकरी:</strong> ${profile.profession}</p>
-<p><strong>उंची:</strong> ${profile.height}</p>
-<p><strong>ठिकाण:</strong> ${profile.location}</p>
-<p><strong>वडिलांचा व्यवसाय:</strong> ${profile.fatherOccupation}</p>
-<p><strong>आईचा व्यवसाय:</strong> ${profile.motherOccupation}</p>
-<p><strong>भावंडे:</strong> ${profile.siblings}</p>
-<p><strong>छंद:</strong> ${profile.hobbies}</p>
-<p><strong>सध्याचे ठिकाण:</strong> ${profile.expectations}</p>
-<p><strong>नातेसंबधं:</strong> ${profile.relatives}</p>
-
-
-      </div>
-    `;
-  } else {
-    displayActionButtons(code, page);
-    details.innerHTML = `<h2>Profile not found</h2>`;
-  }
-}
-
-function applyFilters() {
-  const profession = document.getElementById("professionFilter").value.toLowerCase();
-  const age = document.getElementById("ageFilter").value;
-
-  let filtered = currentProfiles.filter(p => {
-    let matchProfession = profession === "" || p.profession.toLowerCase().includes(profession);
-
-    let matchAge = true;
-    if (age !== "") {
-      matchAge = parseInt(p.age) <= parseInt(age);
-    }
-
-    return matchProfession && matchAge;
-  });
-
-  currentPage = 1; // Reset to first page when filtering
-  displayProfiles(filtered, currentPage);
-}
-
-// Initialize page on biodata.html load
-if (window.location.pathname.includes('biodata.html')) {
-  const urlParams = new URLSearchParams(window.location.search);
-  const pageParam = urlParams.get('page');
-
-  if (pageParam) {
-    // Automatically show female profiles (most common) and go to the specified page
-    currentProfiles = femaleProfiles;
-    currentPage = parseInt(pageParam) || 1;
-    document.getElementById("profileTitle").textContent = "Female Biodata Profiles";
-    displayProfiles(currentProfiles, currentPage);
-  }
-}
+]

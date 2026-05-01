@@ -1,7 +1,8 @@
 // Authentication & Session Management
-// Session timeout: 30 minutes (in milliseconds)
-const SESSION_TIMEOUT = 30 * 60 * 1000; // 30 minutes
+// Session timeout: 60 minutes (in milliseconds)
+const SESSION_TIMEOUT = 60 * 60 * 1000; // 60 minutes
 const PROTECTED_PAGES = ['biodata.html', 'view-profile.html'];
+let isRedirectingToLogin = false;
 
 // Check if current page is protected
 function isProtectedPage() {
@@ -52,31 +53,24 @@ function logout() {
   window.location.href = "login.html";
 }
 
-// Auto logout on inactivity (reset timer on user interaction)
-function setupActivityListener() {
-  const activityEvents = ['mousedown', 'keydown', 'scroll', 'touchstart', 'click'];
-  
-  activityEvents.forEach(event => {
-    document.addEventListener(event, resetSessionTimer, true);
-  });
-}
-
-// Reset session timer on activity
-function resetSessionTimer() {
-  if (isSessionValid()) {
-    sessionStorage.setItem("loginTime", Date.now().toString());
-  }
-}
-
-// Check session periodically (every minute)
+// Check session periodically.
 function startSessionCheck() {
   setInterval(() => {
     if (isProtectedPage() && !isSessionValid()) {
-      clearSession();
-      alert("Your session has expired. Please login again.");
-      window.location.href = "login.html";
+      expireSession();
     }
-  }, 60000); // Check every minute
+  }, 1000); // Check every second for accurate test logout
+}
+
+function expireSession() {
+  if (isRedirectingToLogin) {
+    return;
+  }
+
+  isRedirectingToLogin = true;
+  clearSession();
+  alert("Your session has expired. Please login again.");
+  window.location.href = "login.html";
 }
 
 // Check authentication on page load
@@ -90,9 +84,8 @@ function checkAuthentication() {
     alert("Please login to access this page.");
     window.location.href = "login.html";
   } else {
-    // Session is valid, setup listeners and timers
+    // Session is valid, setup timers
     updateSessionDisplay();
-    setupActivityListener();
     startSessionCheck();
   }
 }
@@ -121,5 +114,27 @@ document.addEventListener('DOMContentLoaded', () => {
   checkAuthentication();
   if (isProtectedPage() && isSessionValid()) {
     startSessionDisplayUpdate();
+  }
+});
+
+// Re-check when returning via browser Back/Forward cache after logout.
+window.addEventListener('pageshow', () => {
+  if (isProtectedPage() && !isSessionValid() && !isRedirectingToLogin) {
+    isRedirectingToLogin = true;
+    window.location.href = "login.html";
+  }
+});
+
+// Mobile browsers may pause timers when the phone locks or browser is backgrounded.
+// Re-validate as soon as the user returns to the protected page.
+document.addEventListener('visibilitychange', () => {
+  if (!document.hidden && isProtectedPage() && !isSessionValid()) {
+    expireSession();
+  }
+});
+
+window.addEventListener('focus', () => {
+  if (isProtectedPage() && !isSessionValid()) {
+    expireSession();
   }
 });
